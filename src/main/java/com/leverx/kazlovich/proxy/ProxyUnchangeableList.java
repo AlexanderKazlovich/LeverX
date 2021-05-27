@@ -19,6 +19,10 @@ public class ProxyUnchangeableList implements Collection {
         }
         return false;
     }
+    @Override
+    public int size() {
+        return proxyList.size();
+    }
 
     @Override
     public boolean addAll(Collection c) {
@@ -65,11 +69,6 @@ public class ProxyUnchangeableList implements Collection {
     }
 
     @Override
-    public int size() {
-        return proxyList.size();
-    }
-
-    @Override
     public boolean isEmpty() {
         return proxyList.isEmpty();
     }
@@ -96,7 +95,7 @@ public class ProxyUnchangeableList implements Collection {
 
     @Override
     public boolean containsAll(Collection c) {
-        return false;
+        return proxyList.containsAll(c);
     }
 
     @Override
@@ -114,9 +113,5 @@ public class ProxyUnchangeableList implements Collection {
 
     public List getProxyList() {
         return proxyList;
-    }
-
-    public void setProxyList(List proxyList) {
-        this.proxyList = proxyList;
     }
 }
